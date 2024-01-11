@@ -1,0 +1,73 @@
+﻿@page
+@model MyStore.Pages.LoginModel
+@{
+}
+<style>
+	body {
+		background-color: #03999f; /* Set your desired background color */
+	}
+
+	.login-container {
+		margin-top: 50px;
+		background-color: white; /* Form background color */
+		padding: 20px;
+		border-radius: 8px; /* Rounded corners for the form */
+		box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+	}
+</style>
+<h2 style="align-content:center;text-align:center;">Staff Login</h2>
+@if (Model.errorMessage.Length > 0)
+{
+	<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+		<strong>@Model.errorMessage</strong>
+		<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+	</div>
+}
+<form method="POST">
+
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Name</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="name" value="@Model.loginInfo.name" />
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Email</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="email" value="@Model.loginInfo.email" />
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Admin Password</label>
+		<div class="col-sm-6">
+			<input type="password" class="form-control" name="password" value="@Model.loginInfo.password" />
+		</div>
+	</div>
+
+
+	@if (Model.successMessage.Length > 0)
+	{
+		<div class="row mb-3">
+			<div class="col-sm-9">
+				<div class='alert alert-success alert-dismissible fade show' role='alert'>
+					<strong>@Model.successMessage</strong>
+					<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+				</div>
+			</div>
+		</div>
+
+	}
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+		</div>
+	</div>
+
+</form>

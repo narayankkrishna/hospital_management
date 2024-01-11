@@ -1,0 +1,110 @@
+﻿@page
+@model MyStore.Pages.Clients.CreateModel
+@{
+}
+<style>
+	body {
+		background-color: #03999f; /* Set your desired background color */
+		font-family: Arial, sans-serif; /* Change font if desired */
+	}
+
+	.form-container {
+		margin: 50px auto;
+		max-width: 600px;
+		padding: 30px;
+		background-color: #fff; /* Form background color */
+		border-radius: 10px;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	}
+
+	h2 {
+		text-align: center;
+		margin-bottom: 30px;
+		color: #333; /* Heading color */
+	}
+
+	.alert {
+		margin-bottom: 20px;
+	}
+
+	.btn-primary {
+		width: 100%;
+	}
+
+	/* Style form inputs */
+	.form-control {
+		border-radius: 5px;
+		border: 1px solid #ccc;
+		padding: 8px;
+		width: calc(100% - 18px);
+		margin-bottom: 15px;
+	}
+
+		/* Optional: Hover and Focus states for inputs */
+		.form-control:hover,
+		.form-control:focus {
+			border-color: #66afe9;
+			outline: none;
+		}
+</style>
+
+<br>
+<h2>New Patient</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+
+	<div class='alert alert-warning alert-dismissible fate show' role='alert'>
+		<strong>@Model.errorMessage</strong>
+		<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+	</div>
+}
+
+
+
+<form method="POST">
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Name</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="name" value="@Model.clientInfo.name">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Email</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="email" value="@Model.clientInfo.email">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Phone</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="phone" value="@Model.clientInfo.phone">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Disease</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="address" value="@Model.clientInfo.address">
+		</div>
+	</div>
+
+	@if (Model.successMessage.Length > 0)
+	{
+		<div class="row mb-3">
+			<div class="col-sm-9">
+				<div class='alert alert-success alert-dismissible fate show' role='alert'>
+					<strong>@Model.successMessage</strong>
+					<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+				</div>
+			</div>
+		</div>
+	}
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+		</div>
+	</div>
+</form>

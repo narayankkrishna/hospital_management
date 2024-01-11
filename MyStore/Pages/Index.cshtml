@@ -1,0 +1,564 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaCare Hospital Management</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #02989f;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Navigation styles */
+       /* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* CSS Variables */
+:root{
+    --navbar-height: 59px;
+}
+
+/* Navigation Bar */
+#navbar{
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+}
+
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 100%;
+    width:100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+/* Navigation Bar: Logo and Image */
+#logo{
+    margin: 10px 34px;
+}
+
+#logo img{
+    height: 59px;
+    margin: 3px 6px;
+}
+
+
+/* Navigation Bar: List Styling */
+
+#navbar ul{
+    display: flex;
+    font-family: 'Baloo Bhai', cursive;
+}
+
+#navbar ul li{ 
+    list-style: none;
+    font-size: 1.3rem;
+}
+
+#navbar ul li a{
+    color: white;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover{
+    color: black;
+    background-color: white;
+}
+
+/* Home Section */
+#home{
+    display: flex;
+    flex-direction: column;
+    padding:3px 200px;
+    height: 550px;
+    justify-content: center;
+    align-items: center;
+}
+
+#home::before{ 
+    content: "";
+    position: absolute;
+    background: url('../pages/pics/hospital.jpg') no-repeat center center/cover;
+    height: 642px;
+    top:0px;
+    left:0px;
+    width: 100%;
+    z-index: -1;
+    opacity:0.89;
+}
+
+#home h1{
+    color:black;
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+}
+
+#home p{
+    color:black;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Bree Serif', serif;
+}
+/* Services Section */
+#services{
+    margin: 34px;
+    display: flex;
+}
+#services .box{ 
+    border: 2px solid #02989f;
+    padding: 34px;
+    margin: 2px 55px;
+    border-radius: 28px;
+    background: #f2f2f2;
+    margin-bottom: 20px;
+}
+
+#services .box img{ 
+   height: 160px;
+   margin: auto;
+   display: block;
+}
+
+#services .box p{
+    font-family: 'Bree Serif', serif;
+
+} 
+
+/* Clients Section */
+#client-section{ 
+    position: relative;
+}
+
+#client-section::before{
+ content: "";
+ position: absolute;
+ background: url('../bg.jpg');
+ width: 100%;
+ height: 100%;
+ z-index: -1;
+ opacity: 0.3;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+    width: 100%;
+}
+#clients{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.client-item{
+    padding: 34px;
+}
+
+#clients img{
+    height: 124px;
+}
+
+
+/* Contact Section */
+#contact{
+    position: relative;
+}
+#contact::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    background: url('../contact.jpg') no-repeat center center/cover;
+
+}
+#home {
+    background: url('background-image.jpg') no-repeat center center/cover; /* Add your background image here */
+    text-align: center;
+    color: #fff;
+    padding: 100px 0;
+}
+
+.home-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#home h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#home p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+ (max-width: 768px) {
+    #home {
+        padding: 80px 0;
+    }
+
+    #home h1 {
+        font-size: 2rem;
+    }
+
+    #home p {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 8px 16px;
+    }
+}
+#contact-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 34px;
+}
+#contact-box input, 
+#contact-box textarea{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 9px;
+    font-size: 1.1rem;
+} 
+
+#contact-box form{
+    width: 40%;
+}
+
+#contact-box label{
+   font-size: 1.3rem;
+   font-family: 'Bree Serif', serif;
+
+}
+
+
+footer{
+    background: black;
+    color: white;
+    padding: 9px 20px;
+}
+/* Add this CSS to your existing styles */
+
+/* Services Section Styles */
+#services-container {
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#services .box {
+    flex: 1;
+    max-width: 350px;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #02989f;
+    border-radius: 28px;
+    background: #f2f2f2;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#services .box img {
+    max-width: 100%;
+    height: auto;
+}
+
+#services .box h2 {
+    font-family: 'Bree Serif', serif;
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+#services .box p {
+    font-family: 'Bree Serif', serif;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Hover Effect */
+/* Add this CSS to your existing styles */
+
+/* Responsive Adjustments */
+ (max-width: 768px) {
+    #services {
+        flex-direction: column; /* Stack services vertically */
+        align-items: center; /* Center services horizontally */
+    }
+
+    #services .box {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}
+
+#services .box:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Responsive Adjustments */
+(max-width: 768px) {
+    #services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #services .box {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    #services .box h2 {
+        font-size: 1.5rem;
+    }
+
+    #services .box p {
+        font-size: 1rem;
+    }
+}
+
+/* Utility Classes */
+.h-primary{
+    font-family: 'Bree Serif', serif;
+    font-size: 3.8rem;
+    padding: 12px;
+}
+
+.h-secondary{
+    font-family: 'Bree Serif', serif;
+    font-size: 2.3rem;
+    padding: 12px;
+}
+
+.btn{
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: #02989f;
+    color: white;
+    margin: 17px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor:pointer;
+}
+(max-width: 768px) {
+    #services .box {
+        max-width: none; /* Remove max-width */
+        width: 100%; /* Set width to 100% */
+        margin: 10px 0; /* Adjust margin as needed */
+    }
+}
+.center{
+    text-align: center;
+}
+/* Add this CSS to your existing styles */
+
+/* Services Section Styles */
+#services-container {
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#services .box {
+    flex: 1;
+    max-width: 350px;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #02989f;
+    border-radius: 28px;
+    background: #f2f2f2;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#services .box img {
+    max-width: 100%;
+    height: auto;
+    width: 200px; /* Set a fixed width for all images */
+    height: 200px; /* Set a fixed height for all images */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+    border-radius: 50%; /* Create rounded images */
+}
+
+#services .box h2 {
+    font-family: 'Bree Serif', serif;
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+#services .box p {
+    font-family: 'Bree Serif', serif;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Hover Effect */
+#services .box:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Responsive Adjustments */
+(max-width: 768px) {
+    #services {
+        flex-direction: column; /* Stack services vertically */
+        align-items: center; /* Center services horizontally */
+    }
+
+    #services .box {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    #services .box h2 {
+        font-size: 1.5rem;
+    }
+
+    #services .box p {
+        font-size: 1rem;
+    }
+}
+
+
+        /* Content section styles */
+        .content-section {
+            background-color;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+            .content-section h2 {
+                color: #007BFF;
+            }
+
+        /* Footer styles */
+       
+
+    </style>
+</head>
+<body>
+    <img src="~/pics/banner2.png"/>
+    <section id="home">
+        <h1>Why choose MED-X?</h1>
+        <p>Med-X Hospital is your trusted healthcare partner, dedicated to providing compassionate and state-of-the-art medical services. Our experienced team of healthcare professionals is committed to delivering top-quality care, ensuring your well-being and peace of mind. </p>
+        <p>Med-X Hospital, your health is our priority, and we strive to be your destination for comprehensive healthcare solutions. </p>
+        <button class="btn">Make an Appointment</button>
+    </section
+
+    <section id="services-container">
+        <h1 class="h-primary center">Our Services</h1>
+        <div id="services">
+            <div class="box">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/265/747/small/blue-pin-in-showing-location-on-white-map.jpg" alt="">
+                <a class="nav-link" asp-area="" asp-page=""> <h2 class="h-secondary center">Hospital Network</h2></a>
+               
+                <p class="center">Proudly serving across India with a network of 6 branches, providing accessible and comprehensive healthcare solutions to communities nationwide.</p>
+            </div>
+            <div class="box">
+                <img src="https://media.istockphoto.com/id/1221362151/video/doctors-and-nurses-team.jpg?s=640x640&k=20&c=1AvxQUGRLpRNEmfgXJyfzfyEgh-cFkaMJesLvifEuKs=" alt="">
+               <a class="nav-link" asp-area="" asp-page=""> <h2 class="h-secondary center">Doctors</h2></a>
+                <p class="center">Our team of highly skilled doctors brings a wealth of experience and expertise across various medical specialties, ensuring you receive top-quality care tailored to your unique health needs</p>
+            </div>
+            <div class="box">
+                <img src="https://img.freepik.com/premium-vector/icons-medical-specialties-anesthesiology-anesthesia-concept-with-hand-drawn-medicine-doodle_661675-479.jpg?w=2000" alt="">
+                 <a  href="https://pharmeasy.in/#"> <h2 class="h-secondary center">Specialities</h2></a>
+                <p class="center"> From cardiology to orthopedics, our hospital offers a comprehensive range of medical specialties to address all your health concerns</p>
+            </div>
+        </div>
+    </section>
+     <section id="services-container">
+        
+        <div id="services">
+            <div class="box">
+                <img src="https://media.istockphoto.com/id/1326302891/vector/male-and-female-doctors-reading-positive-reviews-from-patients.jpg?s=612x612&w=0&k=20&c=hNLzZ59Dx1YxEH39jsy79CCqz308agDTW759vioAP-4=" alt="">
+                <a class="nav-link" asp-area="" asp-page=""> <h2 class="h-secondary center">Feedback</h2></a>
+               
+                <p class="center"> We value your feedback and encourage you to leave your thoughts and suggestions to help us continuously improve our services.</p>
+            </div>
+            <div class="box">
+                <img src="https://img.freepik.com/premium-vector/making-appointment-with-doctor-flat-concept-vector-illustration_151150-12192.jpg" alt="">
+               <a class="nav-link" asp-area="" asp-page=""> <h2 class="h-secondary center">Lab Tests</h2></a>
+                <p class="center">Discover cutting-edge lab tests at our hospital, providing essential insights into your health.</p>
+            </div>
+            <div class="box">
+                <img src="https://img.freepik.com/premium-vector/medicine-jar-pills-strip-cartoon-icon-illustration-healthcare-medicine-icon-concept-isolated-premium-flat-cartoon-style_138676-1621.jpg?w=2000" alt="">
+                 <a  href="https://pharmeasy.in/#"> <h2 class="h-secondary center">Buy medicines</h2></a>
+                <p class="center">Easily order medicines through our trusted partner, PharmEasy, for convenient and hassle-free access to essential healthcare products</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
